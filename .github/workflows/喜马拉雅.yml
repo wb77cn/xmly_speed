@@ -29,4 +29,10 @@ jobs:
             SCKEY: ${{ secrets.SCKEY }}   # server酱服务
             TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}} # tg通知token
             TG_USER_ID:  ${{secrets.TG_USER_ID}}    # tg通知id
-    
+
+      - name: 删除历史工作流
+        uses: GitRML/delete-workflow-runs@main
+        continue-on-error: true
+        with:
+         retain_days: 1
+         keep_minimum_runs: 0
